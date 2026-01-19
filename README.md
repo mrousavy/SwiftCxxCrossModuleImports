@@ -89,3 +89,25 @@ private:
 ```
 
 This is the part we could theoretically also just generate in `FirstPod-Swift.h`. _I think_.
+
+## Experiment with `void*`
+
+I also experimented with erasing the exposed Swift types in C++ completely by just passing the Swift instance as a `void*` - and then for every call I just call a static Swift method from C++, and downcast the `void*` to the Swift class+protocol inside Swift.
+This generates much simpler C++ code in the `*-Swift.h` interop header, but effectively moves the downcast to Swift.
+This is an example of a Swift implementation:
+```swift
+@inline(__always)
+public static func getBoolValue(this: UnsafeRawPointer) -> Bool {
+  let __instance = Unmanaged<HybridTestObjectSwiftKotlinSpec_base>.fromOpaque(this).takeUnretainedValue() as! HybridTestObjectSwiftKotlinSpec
+  let __value = __instance.boolValue
+  return __value
+}
+```
+Due to the `as! ...` cast, it actually does two casts - once from `void*` to `HybridTestObjectSwiftKotlinSpec_base`, and then again for the `HybridTestObjectSwiftKotlinSpec` protocol via `as!`.
+Previously in C++ we only had a `void*` cast to the concrete instance. So this is twice as much work.
+
+And it shows;
+- Before (main): 9.88ms
+- After (`void*`): 15.85ms
+
+..so this is not really a solution. It's also way less safe.
