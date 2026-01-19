@@ -2,10 +2,9 @@ Pod::Spec.new do |spec|
   spec.name         = "SecondPod"
   spec.version      = "0.0.1"
   spec.summary      = "A short description of SecondPod."
-  spec.description  = <<-DESC
-                   DESC
+  spec.description  = "This is the description of SecondPod."
   spec.homepage     = "https://mrousavy.com"
-  spec.license      = "MIT (example)"
+  spec.license      = "MIT"
   spec.author             = { "Marc Rousavy" => "me@mrousavy.com" }
   spec.source       = { :git => "https://github.com/mrousavy/SwiftCxxCrossModuleImports.git", :tag => "#{spec.version}" }
 
@@ -14,7 +13,7 @@ Pod::Spec.new do |spec|
     "*.{hpp,cpp}",
   ]
 
-  s.pod_target_xcconfig = {
+  spec.pod_target_xcconfig = {
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++20",
     "SWIFT_OBJC_INTEROP_MODE" => "objcxx",
   }

@@ -1,3 +1,21 @@
-PODFILE CHECKSUM: 71801f2a5e6f5026591262276c8713a605ca821f
+PODS:
+  - FirstPod (0.0.1)
+  - SecondPod (0.0.1)
+
+DEPENDENCIES:
+  - FirstPod (from `../FirstPod`)
+  - SecondPod (from `../SecondPod`)
+
+EXTERNAL SOURCES:
+  FirstPod:
+    :path: "../FirstPod"
+  SecondPod:
+    :path: "../SecondPod"
+
+SPEC CHECKSUMS:
+  FirstPod: 8a6ac9cfc938c9d58682056c503e492e039ff07b
+  SecondPod: 13b27be92b85d08d15007ce38f104b5da1905836
+
+PODFILE CHECKSUM: da13365faab18fb3ed163209675ae1461c4af0a3
 
 COCOAPODS: 1.16.2
