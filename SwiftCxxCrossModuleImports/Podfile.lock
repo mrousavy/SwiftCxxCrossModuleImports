@@ -1,5 +1,6 @@
 PODS:
-  - FirstPod (0.0.1)
+  - FirstPod (0.0.1):
+    - SecondPod
   - SecondPod (0.0.1)
 
 DEPENDENCIES:
@@ -13,7 +14,7 @@ EXTERNAL SOURCES:
     :path: "../SecondPod"
 
 SPEC CHECKSUMS:
-  FirstPod: c822ec38448f33624a893f6acf4a8efa76170717
+  FirstPod: d4e961e4639f72eea5fbf9812382b1138a1a548e
   SecondPod: b16b1417bf33c92ae03ccb4fe5eb19d7b63bc2c9
 
 PODFILE CHECKSUM: da13365faab18fb3ed163209675ae1461c4af0a3

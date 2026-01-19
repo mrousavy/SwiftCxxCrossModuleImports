@@ -14,6 +14,8 @@ Pod::Spec.new do |spec|
     :tvos => 13.4,
   }
 
+  spec.dependency 'SecondPod'
+
   spec.source_files  = [
     "*.swift",
     "*.{hpp,cpp}",

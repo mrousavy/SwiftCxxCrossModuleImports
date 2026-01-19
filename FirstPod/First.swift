@@ -1,3 +1,5 @@
+import SecondPod
+
 public class First {
   public init() {
 
@@ -9,5 +11,9 @@ public class First {
 
   public func createCppPartNull() -> firstcpp.SharedPtrToFirst {
     return firstcpp.createSharedPtrToFirstCpp()
+  }
+  
+  public func createSecond() -> Second {
+    return Second()
   }
 }
