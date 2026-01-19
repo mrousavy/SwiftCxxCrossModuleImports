@@ -87,3 +87,5 @@ private:
 #pragma clang diagnostic pop
 };
 ```
+
+This is the part we could theoretically also just generate in `FirstPod-Swift.h`. _I think_.
