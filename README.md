@@ -7,9 +7,11 @@ This is a reproduction for the issues reported by me in the Swift compiler relat
 The project has two libraries, `FirstPod` and `SecondPod`.
 
 Each pod uses Swift <> C++ interop extensively, so there are Swift files that use C++ types, and C++ files that use Swift types:
-- `CppTypesExposedToSwift.hpp`: A C++ header that defines some types that I will use in Swift, for example specializations for `std::shared_ptr`. In Nitro, I generate this into a file called [`*-Swift-Cxx-Bridge.hpp`](https://github.com/mrousavy/nitro/blob/main/packages/react-native-nitro-test/nitrogen/generated/ios/NitroTest-Swift-Cxx-Bridge.hpp).
+- `FirstCppTypesExposedToSwift.hpp`: A C++ header that defines some types that I will use in Swift, for example specializations for `std::shared_ptr`. In Nitro, I generate this into a file called [`*-Swift-Cxx-Bridge.hpp`](https://github.com/mrousavy/nitro/blob/main/packages/react-native-nitro-test/nitrogen/generated/ios/NitroTest-Swift-Cxx-Bridge.hpp).
 - `First.swift`: The Swift file that defines Swift types (here, a class called `First`). This Swift class is exposed to C++, and also uses types from C++ (here, [`firstcpp.SharedPtrToFirst`](https://github.com/mrousavy/SwiftCxxCrossModuleImports/blob/35d02cdbca0065843d56ebe72b9bdd622f2543d5/FirstPod/CppTypesExposedToSwift.hpp#L7)).
 - `First.hpp`/`First.cpp`: The C++ file that uses the Swift types in it's implementation (`First.cpp` via the imported `FirstPod-Swift.h` header), as well as in it's public API surface (`First.hpp`, via a forward declaration to not worry about _publicly_ importing `FirstPod-Swift.h` from outside of this module)
+
+..same for `SecondPod`.
 
 This works all fine when you have one module, but as soon as one module depends on another module (here, `FirstPod` depends on `SecondPod`) it will break the Swift compiler because of the types that will be generated in `*-Swift.h`.
 You can try to work around the issue but it will always be one of those two problems;
