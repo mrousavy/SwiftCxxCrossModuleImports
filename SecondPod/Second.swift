@@ -1,6 +1,9 @@
-
 public class Second {
-  func sayHello() {
+  public init() {
+    
+  }
+  
+  public func sayHello() {
     print("Hello!")
   }
 }

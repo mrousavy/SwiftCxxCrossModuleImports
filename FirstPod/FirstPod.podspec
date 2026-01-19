@@ -7,6 +7,12 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author             = { "Marc Rousavy" => "me@mrousavy.com" }
   spec.source       = { :git => "https://github.com/mrousavy/SwiftCxxCrossModuleImports.git", :tag => "#{spec.version}" }
+  spec.platforms    = {
+    :ios => 16.0,
+    :visionos => 1.0,
+    :macos => 10.13,
+    :tvos => 13.4,
+  }
 
   spec.source_files  = [
     "*.swift",
