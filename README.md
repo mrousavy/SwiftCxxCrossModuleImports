@@ -24,6 +24,8 @@ I think the solution is to just create the bridging part for `SecondPod::Second`
 
 You can reproduce this specific issue by making `First` inherit from `Second`.
 
+I found this commit in the Swift compiler repo to be relevant: https://github.com/swiftlang/swift/commit/4fda7f4a9adb39ee57cf58393fad140cd7b510bb#diff-c74517ee05bd5ca55a093b3a6b8433967fdff6e6b99ecb3acccd73dc12b30fec -
+
 ## Generated code
 
 ### `FirstPod-Swift.h`
