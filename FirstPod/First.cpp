@@ -8,6 +8,7 @@
 
 namespace firstcpp {
   FirstPod::First FirstCpp::createFirstSwift() {
-    return FirstPod::First::init();
+    auto someCommonCppType = std::make_shared<int>(55);
+    return FirstPod::First::init(someCommonCppType);
   }
 }

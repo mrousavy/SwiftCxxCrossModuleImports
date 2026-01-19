@@ -1,19 +1,11 @@
 import SecondPod
 
 public class First {
-  public init() {
-
-  }
-
-  public func sayHello() {
-    print("Hello!")
-  }
-
-  public func createCppPartNull() -> firstcpp.SharedPtrToFirst {
-    return firstcpp.createSharedPtrToFirstCpp()
+  public init(someType: firstcpp.SomeCommonCppType) {
+    print("Value from C++: \(someType.pointee)")
   }
   
-  public func createSecond() -> Second {
-    return Second()
+  public func createSecond() {
+    Second(someType: firstcpp.createSomeCommonCppType())
   }
 }

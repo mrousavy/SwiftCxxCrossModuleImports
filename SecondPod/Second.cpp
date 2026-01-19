@@ -8,6 +8,7 @@
 
 namespace secondcpp {
   SecondPod::Second SecondCpp::createSecondSwift() {
-    return SecondPod::Second::init();
+    auto someCommonCppType = std::make_shared<int>(13);
+    return SecondPod::Second::init(someCommonCppType);
   }
 }

@@ -1,13 +1,5 @@
 public class Second {
-  public init() {
-    
-  }
-  
-  public func sayHello() {
-    print("Hello!")
-  }
-  
-  public func createCppPartNull() -> secondcpp.SharedPtrToSecond {
-    return secondcpp.createSharedPtrToSecondCpp()
+  public init(someType: secondcpp.SomeCommonCppType) {
+    print("Value from C++: \(someType.pointee)")
   }
 }

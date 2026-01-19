@@ -1,11 +1,10 @@
 #pragma once
 
 #include <memory>
-#include "First.hpp"
 
 namespace firstcpp {
-  using SharedPtrToFirst = std::shared_ptr<FirstCpp>;
-  SharedPtrToFirst createSharedPtrToFirstCpp() {
-    return std::make_shared<FirstCpp>();
+  using SomeCommonCppType = std::shared_ptr<int>;
+  SomeCommonCppType createSomeCommonCppType() {
+    return std::make_shared<int>(55);
   }
 }
