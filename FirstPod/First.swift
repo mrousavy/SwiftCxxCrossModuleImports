@@ -5,7 +5,9 @@ public class First {
     print("Value from C++: \(someType.pointee)")
   }
   
-  public func createSecond() {
-    Second(someType: firstcpp.createSomeCommonCppType())
+  // FIXME: If you remove `Second` from the public API surface here,
+  //        the app will build again. But I need to access it from C++.
+  public func createSecond() -> Second {
+    return Second(someType: firstcpp.createSomeCommonCppType())
   }
 }
