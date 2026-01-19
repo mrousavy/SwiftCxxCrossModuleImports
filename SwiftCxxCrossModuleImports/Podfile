@@ -1,0 +1,4 @@
+platform :ios, '16.0'
+
+target 'SwiftCxxCrossModuleImports' do
+end
